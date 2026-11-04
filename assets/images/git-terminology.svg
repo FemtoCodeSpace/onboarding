@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="git-terminology.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="5.9590605"
+     inkscape:cx="254.23471"
+     inkscape:cy="189.37549"
+     inkscape:window-width="3764"
+     inkscape:window-height="2083"
+     inkscape:window-x="76"
+     inkscape:window-y="40"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <rect
+       x="361.8469"
+       y="178.91119"
+       width="73.234766"
+       height="19.739895"
+       id="rect2969" />
+    <rect
+       x="197.52954"
+       y="84.522837"
+       width="110.00054"
+       height="15.639857"
+       id="rect2879" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient2569">
+      <stop
+         style="stop-color:#6cb45a;stop-opacity:1;"
+         offset="0"
+         id="stop2565" />
+      <stop
+         style="stop-color:#6cb45a;stop-opacity:0;"
+         offset="1"
+         id="stop2567" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2569"
+       id="linearGradient2571"
+       x1="27.622485"
+       y1="38.578193"
+       x2="121.97949"
+       y2="38.578193"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#4f54c3;fill-opacity:1;stroke:#000000;stroke-width:0.529167;stroke-linejoin:bevel"
+       id="rect234"
+       width="37.642174"
+       height="31.425518"
+       x="10.767345"
+       y="12.780605"
+       rx="3.175" />
+    <rect
+       style="fill:#e88200;fill-opacity:1;stroke:#000000;stroke-width:0.529167;stroke-linejoin:bevel"
+       id="rect234-3"
+       width="37.642174"
+       height="31.293377"
+       x="48.508854"
+       y="12.908451"
+       rx="3.175" />
+    <rect
+       style="fill:#6cb45a;fill-opacity:1;stroke:#000000;stroke-width:0.529167;stroke-linejoin:bevel"
+       id="rect234-3-6"
+       width="37.642174"
+       height="31.492229"
+       x="86.126137"
+       y="12.938937"
+       rx="3.175" />
+    <rect
+       style="fill:#b49a5a;fill-opacity:1;stroke:#000000;stroke-width:0.529167;stroke-linejoin:bevel"
+       id="rect234-3-6-3"
+       width="37.642174"
+       height="31.492229"
+       x="123.71587"
+       y="12.931753"
+       rx="3.175" />
+    <text
+       xml:space="preserve"
+       style="font-size:2.82223px;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.029;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
+       x="29.572195"
+       y="19.575371"
+       id="text2505"><tspan
+         sodipodi:role="line"
+         style="font-weight:bold;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.029;stroke-dasharray:none;stroke-opacity:1"
+         x="29.572195"
+         y="19.575371"
+         id="tspan2561">commit:</tspan><tspan
+         sodipodi:role="line"
+         style="text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.029;stroke-dasharray:none;stroke-opacity:1"
+         x="29.572195"
+         y="23.103159"
+         id="tspan438">A snapshot of your </tspan><tspan
+         sodipodi:role="line"
+         style="text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.029;stroke-dasharray:none;stroke-opacity:1"
+         x="29.572195"
+         y="26.630945"
+         id="tspan442">file system</tspan><tspan
+         sodipodi:role="line"
+         style="text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.029;stroke-dasharray:none;stroke-opacity:1"
+         x="29.572195"
+         y="30.158733"
+         id="tspan2953" /><tspan
+         sodipodi:role="line"
+         style="font-style:italic;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.029;stroke-dasharray:none;stroke-opacity:1"
+         x="29.572195"
+         y="33.68652"
+         id="tspan2957">A commit saves the state</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:italic;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.029;stroke-dasharray:none;stroke-opacity:1"
+         x="29.572195"
+         y="37.21431"
+         id="tspan450">of your project at that time.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.82223px;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.029;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
+       x="67.567093"
+       y="19.525908"
+       id="text2505-7"><tspan
+         sodipodi:role="line"
+         style="font-weight:bold;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.029;stroke-dasharray:none;stroke-opacity:1"
+         x="67.567093"
+         y="19.525908"
+         id="tspan2783-6">repository:</tspan><tspan
+         sodipodi:role="line"
+         style="text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.029;stroke-dasharray:none;stroke-opacity:1"
+         x="67.567093"
+         y="23.053696"
+         id="tspan2890">A directory containing your</tspan><tspan
+         sodipodi:role="line"
+         style="text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.029;stroke-dasharray:none;stroke-opacity:1"
+         x="67.567093"
+         y="26.581482"
+         id="tspan2900">project and additional files</tspan><tspan
+         sodipodi:role="line"
+         style="text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.029;stroke-dasharray:none;stroke-opacity:1"
+         x="67.567093"
+         y="30.10927"
+         id="tspan2894">to communicate with git</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:italic;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.029;stroke-dasharray:none;stroke-opacity:1"
+         x="67.567093"
+         y="33.637058"
+         id="tspan2949">This is not equivalent</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:italic;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.029;stroke-dasharray:none;stroke-opacity:1"
+         x="67.567093"
+         y="37.164845"
+         id="tspan462">to your working directory.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.82223px;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.029;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
+       x="104.37689"
+       y="19.461872"
+       id="text2505-9"><tspan
+         sodipodi:role="line"
+         style="font-weight:bold;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.029;stroke-dasharray:none;stroke-opacity:1"
+         x="104.37689"
+         y="19.461872"
+         id="tspan2919">checkout:</tspan><tspan
+         sodipodi:role="line"
+         style="text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.029;stroke-dasharray:none;stroke-opacity:1"
+         x="104.37689"
+         y="22.98966"
+         id="tspan2923">A copy of repository</tspan><tspan
+         sodipodi:role="line"
+         style="text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.029;stroke-dasharray:none;stroke-opacity:1"
+         x="104.37689"
+         y="26.517447"
+         id="tspan466">content in your working </tspan><tspan
+         sodipodi:role="line"
+         style="text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.029;stroke-dasharray:none;stroke-opacity:1"
+         x="104.37689"
+         y="30.045235"
+         id="tspan2935">directory</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:italic;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.029;stroke-dasharray:none;stroke-opacity:1"
+         x="104.37689"
+         y="33.573021"
+         id="tspan2937">This can be a specific file,</tspan><tspan
+         sodipodi:role="line"
+         style="text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.029;stroke-dasharray:none;stroke-opacity:1;font-style:italic"
+         x="104.37689"
+         y="37.100811"
+         id="tspan2939">commit, branch, ...​​</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.82223px;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.029;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
+       x="142.92902"
+       y="19.491266"
+       id="text2505-9-6"><tspan
+         sodipodi:role="line"
+         style="font-weight:bold;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.029;stroke-dasharray:none;stroke-opacity:1"
+         x="142.92902"
+         y="19.491266"
+         id="tspan2919-7">branch:</tspan><tspan
+         sodipodi:role="line"
+         style="text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.029;stroke-dasharray:none;stroke-opacity:1"
+         x="142.92902"
+         y="23.019054"
+         id="tspan2935-5">A new line of development</tspan><tspan
+         sodipodi:role="line"
+         style="text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.029;stroke-dasharray:none;stroke-opacity:1"
+         x="142.92902"
+         y="26.546841"
+         id="tspan1266">in your project</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:italic;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.029;stroke-dasharray:none;stroke-opacity:1"
+         x="142.92902"
+         y="30.074629"
+         id="tspan2939-2">The branch leaves the main</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:italic;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.029;stroke-dasharray:none;stroke-opacity:1"
+         x="142.92902"
+         y="33.602417"
+         id="tspan1270">status of the project </tspan><tspan
+         sodipodi:role="line"
+         style="font-style:italic;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.029;stroke-dasharray:none;stroke-opacity:1"
+         x="142.92902"
+         y="37.130203"
+         id="tspan1272">unchanged.​​</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text2967"
+       style="font-size:10.6667px;text-align:center;white-space:pre;shape-inside:url(#rect2969);display:inline;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.109606;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="git-terminology.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+  </g>
+</svg>
