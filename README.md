@@ -104,7 +104,7 @@ To open a local repository - one that you have either cloned first, or that you 
 publish branch
 show what a branch is
 
-A branch starts from a specific commit (usually the latest commit on `main`) and from then on records its own commits, independently of `main`. Other people can keep working on `main` (or on their own branches) at the same time without interfering with your work:
+A branch tracks a certain line of development, starting from some common ancestor (a certain commit, usually the latest commit on `main`). A branch records from then on its own commits, independently of `main`. Other people can keep working on `main` (or on their own branches) at the same time without interfering with your work:
 
 ```mermaid
 gitGraph
@@ -120,15 +120,16 @@ gitGraph
 
 Here, `my-feature` was created from commit `B`. Commits `C` and `D` only exist on `my-feature`, while commit `E` only exists on `main`.
 
-To create a new branch in VS Code, click on the branch name in the bottom left corner of the status bar (e.g. `main`) and select "Create new branch..." (or open the Command Palette with `Ctrl+Shift+P` and run "Git: Create Branch..."). Give the branch a short, descriptive name, for example `fix-data-loading` or `add-plotting-script`. VS Code automatically switches to the new branch.
+To create a new branch in VS Code, click on the branch name in the bottom left corner of the status bar (e.g. `main`) and select "Create new branch". Give the branch a short, descriptive name, for example `fix-data-loading` or `add-plotting-script`. VS Code automatically switches to the new branch.
 
 The new branch only exists on your local machine at first. To make it available on GitHub, click "Publish Branch" in the Source Control panel (or the cloud icon next to the branch name in the status bar).
+![img](./assets/images/git-branch.png)
 
 ## Switching branches
 
 To switch to another branch, click on the branch name in the bottom left corner of the status bar and select the branch you want from the list. VS Code then updates the files in your working directory to the state of that branch.
 
-Note that a branch is *not* a separate directory: you stay in the same folder, but the contents of the files change depending on which branch you have checked out. Commit (or stash) your changes before switching, otherwise `git` may refuse to switch or carry your uncommitted changes over to the other branch.
+Note that a branch is not a separate directory: you stay in the same folder, but the contents of the files change depending on which branch you have checked out. If you have changes on the current branch, commit (or stash) them before switching, otherwise `git` may refuse to switch.
 
 ## Merging branches
 
@@ -150,7 +151,7 @@ gitGraph
 
 The merge creates a new commit on `main` that combines the changes from `my-feature` (`C`, `D`) with the changes on `main` (`E`).
 
-In our projects, merging into `main` is usually done on GitHub through a **Pull Request**, so that others can review your changes first. To merge locally in VS Code, switch to the branch you want to merge *into* (e.g. `main`), open the Command Palette (`Ctrl+Shift+P`), run "Git: Merge..." and select the branch to merge *from*.
+**Depending on your project, merging into `main` may require a review from another person in the group first.**
 
 If both branches changed the same lines of a file, `git` cannot decide which version to keep and reports a **merge conflict**. VS Code highlights the conflicting sections and lets you choose "Accept Current Change", "Accept Incoming Change" or "Accept Both Changes", or open the merge editor to resolve them. After resolving all conflicts, stage the files and commit to complete the merge.
 
@@ -164,12 +165,10 @@ flowchart LR
 ```
 
 ## Updating the local copy of the repository with the latest changes on the remote
-fetch and pull
-
 Other people push their changes to the remote while you work, so your local copy can become outdated.
 
 - **`fetch`** downloads the latest information from the remote (new commits and branches), but does not change your files.
-- **`pull`** fetches *and* merges the remote changes into your current branch.
+- **`pull`** fetches and merges the remote changes into your current branch.
 
 ```mermaid
 sequenceDiagram
@@ -190,10 +189,12 @@ Open a file from the File Explorer and edit it as usual, then save it (`Ctrl+S`)
 ## Staging the changes for a commit
 
 In the Source Control panel, hover over a changed file and click the **+** icon to stage it, or click **+** next to "Changes" to stage all files. Staged files move to the "Staged Changes" section. Staging lets you decide exactly which changes go into the next commit, so that each commit groups related changes together. To unstage a file, click the **−** icon.
+![img](./assets/images/git-stage.png)
 
 ## Making a commit
 
 Type a short, meaningful commit message into the text field at the top of the Source Control panel, for example "Fix unit conversion in data loader", and click "Commit". Good commit messages describe *what* changed and, if not obvious, *why*. If you have not staged anything, VS Code will ask whether to commit all changes directly.
+![img](./assets/images/git-commit-message.png)
 
 ## Pushing the changes to the remote
 
