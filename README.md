@@ -1,20 +1,6 @@
-Git through VSCode description
-clone, update, open issue, directory vs branch
-claude use, help with merge conflicts
+# FemtoCodeSpace onboarding and standard practice repo
 
-python, jupyter, matlab
-run locally
-use of env not unified
-pip, uv
-ML/DL code
-
-onboarding repo / process standards
-
-- envs
-- pre-commit hooks
-- work in branches
-- open issues
-
+This is the FemtoCodeSpace onboarding repo, that contains materials detailing the standard processes and tools used in the group. It contains sections about the [use of git and GitHub](#about-git-and-github), about [how to run Python code](#how-to-run-python-code), [code formatting, linting and pre-commit hooks](#code-formatting-linting-and-pre-commit-hooks), and about [how to set up your AI agents](#how-to-set-up-your-ai-agents) such as Claude Code.
 
 # About git and GitHub
 
@@ -163,6 +149,7 @@ flowchart LR
     D --> E[Stage resolved files]
     E --> F[Commit to complete the merge]
 ```
+You may use Claude or another AI agent to help you resolve merge conflicts.
 
 ## Updating the local copy of the repository with the latest changes on the remote
 Other people push their changes to the remote while you work, so your local copy can become outdated.
@@ -198,6 +185,8 @@ Type a short, meaningful commit message into the text field at the top of the So
 
 ![img](./assets/images/git-commit-message.png)
 
+If the repository uses [`pre-commit` hooks](#pre-commit-hooks) (and you have activated them with `pre-commit install`), a set of checks such as code formatting and linting runs automatically on your staged files when you click "Commit". If a check fails or modifies a file, the commit is not created; review the changes, stage the files again and commit again. See [What happens when a hook fails](#what-happens-when-a-hook-fails) for details.
+
 ## Pushing the changes to the remote
 
 After committing, your commits only exist locally. Click "Sync Changes" in the Source Control panel (or the "..." menu -> "Push") to upload your commits to GitHub. If the remote contains changes you do not have yet, you have to pull first.
@@ -221,4 +210,173 @@ Once a branch has been merged, it is no longer needed and can be deleted to keep
 
 Issues are used on GitHub to track bugs, tasks, ideas and questions. To open one, go to the repository on GitHub, click the "Issues" tab and then "New issue". Give it a clear title and describe the problem or task, including steps to reproduce a bug if relevant. You can assign people, add labels, and reference the issue in commits or Pull Requests (e.g. "Fixes #12"), which closes the issue automatically when merged. With the "GitHub Pull Requests" extension, you can also view and create issues directly in VS Code.
 
+# How to run Python code
+The FemtoCodeSpace group mostly runs Python code, and predominantly through Jupyter notebooks; but also Matlab code. Here some instructions for how to run Python code locally are provided.
 
+## Python environments
+You should use Python environments to handle different Python packages or notebooks. The reason is that different packages can have conflicting dependencies; this is especially important for machine-learning libraries. 
+
+Ideally, each repository with Python code contains a `requirements.txt` or `pyproject.toml` file detailing the required packages for the code it contains; for example, for `requirements.txt`:
+```
+pandas>=2.0
+matplotlib>=3.7
+ipykernel
+```
+This is the fundamental file that tells what Python libraries the current Python code relies on. It should provide version numbers, if it relies on specific versions of a package. A [`pyproject.toml` file](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/) also contains package metadata.
+
+These files are used to create your working environment. It is recommended to use `uv`, a [fast Python package manager written in Rust](https://docs.astral.sh/uv/). `uv` installs the packages into a hidden `.venv` folder inside the project directory, so each project has its own, isolated environment and different projects cannot interfere with each other.
+
+### Projects with a `pyproject.toml`
+
+If the repository contains a `pyproject.toml`, open a terminal in the project folder and run
+```bash
+uv sync
+```
+This single command takes care of everything needed to get a working environment:
+
+1. It downloads the Python version the project requires, if it is not installed on your machine yet.
+2. It creates the `.venv` folder, if it does not exist yet.
+3. It resolves all dependencies listed in `pyproject.toml` and writes the exact versions of all packages into the lockfile `uv.lock`. If a `uv.lock` already exists, it is reused, so that everyone working on the project gets exactly the same package versions.
+4. It installs exactly these packages into `.venv`, and removes packages that are not listed (for example ones that were installed manually).
+
+Development dependencies (packages that are only needed for working on the code, such as `ipykernel`, `pytest` or `pre-commit`) are installed as well. Run `uv sync` again whenever `pyproject.toml` or `uv.lock` changed, for example after pulling changes from GitHub. The `uv.lock` file should be committed to the repository together with `pyproject.toml`.
+
+To add or remove a package, do not edit `pyproject.toml` by hand, but use
+```bash
+uv add <package-name>          # add a package
+uv add --dev <package-name>    # add a development-only package
+uv remove <package-name>       # remove a package
+```
+These commands update `pyproject.toml` and `uv.lock` and sync the environment automatically.
+
+To run a script or command in the environment, prefix it with `uv run`, for example `uv run python my_script.py`. This makes sure the environment is up to date before running. Alternatively, activate the environment once per terminal session with `source .venv/bin/activate` (Linux/MacOS) or `.venv\Scripts\activate` (Windows PowerShell); then `python` refers to the environment's Python.
+
+### Starting a new project
+
+`uv sync` does not create a `pyproject.toml` and fails if there is none. To start a new project, run in the project folder
+```bash
+uv init
+```
+which creates a minimal `pyproject.toml` (and a few other files such as `.python-version`). Then add the packages you need with `uv add`.
+
+### Projects with only a `requirements.txt`
+
+`uv sync` does not read `requirements.txt` files. In this case, create the environment and install the packages with
+```bash
+uv venv
+uv pip install -r requirements.txt
+```
+## Using `uv` environments in Jupyter notebooks
+
+`uv` creates the environment in a hidden `.venv` folder inside the project directory. To run a notebook with the packages from this environment, Jupyter needs a kernel that points to `.venv`. For this, the environment must contain the `ipykernel` package. If it is not already listed in `pyproject.toml`, add it as a development dependency:
+```bash
+uv add --dev ipykernel
+```
+If the project only has a `requirements.txt`, create the environment and install the packages (including `ipykernel`) with:
+```bash
+uv venv
+uv pip install -r requirements.txt ipykernel
+```
+
+### In VS Code
+
+1. Install the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) (it is installed together with the Python extension in most cases).
+2. Open the project folder ("File" -> "Open Folder") and open the `.ipynb` file.
+3. Click "Select Kernel" in the top right corner of the notebook, choose "Python Environments..." and select the `.venv` entry of your project (for example `.venv (Python 3.12.x)`).
+
+VS Code remembers this choice for the notebook. If `.venv` does not show up in the list, run `uv sync` first, then reload the window (close and re-open VS Code).
+
+### Adding packages while working in a notebook
+
+Do not use `!pip install` inside a notebook, as the package then does not end up in `pyproject.toml` and others cannot reproduce your environment. Instead, run in the terminal:
+```bash
+uv add <package-name>
+```
+and restart the kernel (VS Code: "Restart" button at the top of the notebook; JupyterLab: "Kernel" -> "Restart Kernel").
+
+# Code formatting, linting and pre-commit hooks
+Python code follows certain formatting and naming standards, specified in the [PEP 8](https://peps.python.org/pep-0008/). There are some basic principles that you should follow when writing Python code, for example lowercase names for Python modules, functions and variables.
+
+For your convenience, formatters and linters exist that ensure compliance with these rules, and they can also detect some basic bugs. It is recommended to use [ruff](https://docs.astral.sh/ruff/), a very fast linter and formatter written in Rust.
+
+It is very helpful to style and format code in a consistent matter, since it reduces [cognitive load](https://christiecosky.com/posts/2026/01/formatting-cognitive-load/).
+
+You do not need to run `ruff` manually to help you with this; the easiest way is through [`pre-commit` hooks](https://pre-commit.com/) (see below).
+
+## Linting and formatting with `ruff`
+
+`ruff` does two different jobs:
+
+- **Linting** (`ruff check`) analyses your code for problems without running it: unused imports or variables, undefined names, bare `except:` clauses, comparisons like `== None`, and many more. Many of these issues can be fixed automatically (`--fix`); the others are reported with file name, line number and an error code (for example `F401` for an unused import), which you can look up in the [list of rules](https://docs.astral.sh/ruff/rules/).
+- **Formatting** (`ruff format`) rewrites the layout of your code in a consistent style: indentation, line length, quotes, spaces around operators, line breaks in long function calls. It does not change what the code does.
+
+`ruff` also checks and formats Jupyter notebooks (`.ipynb` files).
+
+If needed, `ruff` can be configured per project in the `pyproject.toml`, for example to change the maximum line length or to enable additional rules:
+```toml
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+extend-select = ["I"]  # also sort imports
+```
+Without such a section, the sensible defaults are used, which is fine for most projects.
+
+To see the `ruff` results directly while writing code, install the [Ruff extension for VS Code](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff). Problems are then underlined in the editor, and you can format a file with "Format Document" (`Ctrl+Shift+I`).
+
+## `pre-commit` hooks
+
+A `git` hook is a script that `git` runs automatically at a certain point, for example right before a commit is created. [`pre-commit`](https://pre-commit.com/) is a tool to manage such hooks: every time you commit, it runs a set of checks (such as `ruff`) on the files you staged. If a check fails or a tool modifies a file, the commit is stopped, so that badly formatted or broken code does not end up in the `git` history.
+
+The hooks are defined in a file `.pre-commit-config.yaml` in the root of the repository. This repository, for example, uses:
+```yaml
+repos:
+  - repo: https://github.com/kynan/nbstripout
+    rev: 0.9.1
+    hooks:
+    - id: nbstripout
+      files: ".ipynb"
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.17.1
+    hooks:
+      - id: ruff-check
+        args: [--fix]
+      - id: ruff-format
+```
+- `nbstripout` removes the outputs (plots, printed results, execution counts) from Jupyter notebooks before they are committed. This keeps the repository small, makes the changes in notebooks readable in diffs, and prevents merge conflicts caused by outputs. It also avoids accidentally committing data that is shown in cell outputs.
+- `ruff-check` runs the linter and fixes what it can automatically.
+- `ruff-format` runs the formatter.
+
+`rev` pins the version of each tool, so that everyone in the project uses exactly the same version and gets the same results. `pre-commit` installs these tools by itself in a separate environment; you do not need to install `ruff` yourself. For this reason, always run `ruff` via `pre-commit` and not a separately installed `ruff`, which may have a different version and give different results.
+
+### Setting up `pre-commit`
+
+`pre-commit` needs to be installed once, and then activated once in each repository (after cloning). Using `uv`, add it as a development dependency to the project and activate the hooks:
+```bash
+uv add --dev pre-commit
+uv run pre-commit install
+```
+Alternatively, install it once for all projects with `uv tool install pre-commit`, and then run `pre-commit install` in each repository.
+
+`pre-commit install` registers the hooks in the (local) `.git` folder, so it has to be repeated for every fresh clone of a repository. From then on, the hooks run automatically on every commit, including commits made through the VS Code Source Control panel.
+
+### What happens when a hook fails
+
+When you commit and a hook finds something, the commit is not created. In the terminal, `pre-commit` prints which hook failed and why; in VS Code, an error message pops up, and you can click "Show Command Output" to see the details.
+
+- If a hook modified your files (for example `ruff-format` reformatted them, or `nbstripout` removed notebook outputs), the changes show up as new, unstaged changes. Review them, stage the files again, and commit again.
+- If a hook reports a problem it cannot fix automatically (for example an undefined variable), fix it in the code, stage the file and commit again.
+
+Repeat until all hooks pass.
+
+### Running the hooks manually
+
+You can run all hooks on all files of the repository at any time, without committing, with
+```bash
+uv run pre-commit run --all-files
+```
+This is useful when adding `pre-commit` to an existing project, since the hooks otherwise only check the files that you change. To run the hooks only on specific files, use `uv run pre-commit run --files path/to/file.py`.
+
+To update the tool versions in `.pre-commit-config.yaml` to the latest releases, run `uv run pre-commit autoupdate` and commit the changed configuration file.
+
+# How to set up your AI agents
