@@ -1,0 +1,10 @@
+# Dependabot configuration: checks for new versions of the tools pinned
+# in .pre-commit-config.yaml and opens a Pull Request to update them.
+version: 2
+updates:
+  - package-ecosystem: "pre-commit"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "pre-commit"
