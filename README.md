@@ -1,6 +1,6 @@
 # FemtoCodeSpace onboarding and standard practice repo
 
-This is the FemtoCodeSpace onboarding repo, that contains materials detailing the standard processes and tools used in the group. It contains sections about the [use of git and GitHub](#about-git-and-github), about [how to run Python code](#how-to-run-python-code), [code formatting, linting and pre-commit hooks](#code-formatting-linting-and-pre-commit-hooks), and about [how to set up your AI agents](#how-to-set-up-your-ai-agents) such as Claude Code.
+This is the FemtoCodeSpace onboarding repo, that contains materials detailing the standard processes and tools used in the group. It contains sections about the [use of git and GitHub](#about-git-and-github) including [the GitHub flow we follow in the group](#the-github-flow-how-we-work-in-the-group), about [how to run Python code](#how-to-run-python-code), [code formatting, linting and pre-commit hooks](#code-formatting-linting-and-pre-commit-hooks), and about [how to set up your AI agents](#how-to-set-up-your-ai-agents) such as Claude Code.
 
 # About git and GitHub
 
@@ -29,6 +29,19 @@ You provide a **commit** message and commit the file to the local `git` history.
 Usually, there is a fourth step, that is the synchronization of your local files with the remote git host (for example, GitHub). For this you need to **`push`** your changes to the remote; which makes the changes available for everyone who has access to the repository.
 
 GitHub is a service that hosts Git repositories online so you can share your work and collaborate with others. You can use GitHub to make your projects available to a selected user group, or to the whole public. GitHub offers much more than just git hosting, through GitHub projects, GitHub pages, GitHub Copilot, Pull Requests, Continuous Integration, Continuous Deployment, ... - which goes beyond the instructions provided here. 
+
+## The GitHub flow: how we work in the group
+
+All projects in the group follow the [GitHub flow](https://docs.github.com/en/get-started/using-github/github-flow). The `main` branch always contains working code; nobody commits directly to `main`. Every change ideally goes through these steps:
+
+1. **Open an issue** on GitHub that describes the bug, task or idea (see [Opening an issue](#opening-an-issue)).
+2. **Update your local `main`** with the latest changes from GitHub (see [Updating the local copy](#updating-the-local-copy-of-the-repository-with-the-latest-changes-on-the-remote)).
+3. **Create a new branch** from `main` with a short, descriptive name, e.g. `fix-data-loading` (see [Creating a new branch](#creating-a-new-branch)).
+4. **Make changes and commit** them to your branch in small, meaningful steps (see [Making a commit](#making-a-commit)).
+5. **Push the branch** to GitHub (see [Pushing the changes to the remote](#pushing-the-changes-to-the-remote)). Push regularly, so your work is backed up and visible to others.
+6. **Discuss with the projects main responsible person and ask them to merge the changes.**
+
+The following sections explain how to do each of these steps in VS Code.
 
 # Work with git and GitHub in VS Code
 
