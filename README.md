@@ -380,3 +380,11 @@ This is useful when adding `pre-commit` to an existing project, since the hooks 
 To update the tool versions in `.pre-commit-config.yaml` to the latest releases, run `uv run pre-commit autoupdate` and commit the changed configuration file.
 
 # How to set up your AI agents
+
+The [`AGENTS.md`](AGENTS.md) file in this repository tells AI agents to follow the group standards described above (branches, `uv`, `pre-commit`, ...). Set it up once globally for your user account, so that it applies to all your projects, also to those that already have their own `AGENTS.md` (project-specific instructions take precedence over the global ones). Clone this repository to a fixed location, for example `~/femtocodespace-onboarding`, so that you get updates with `git pull`, and then:
+
+- **Claude Code:** add the line `@~/femtocodespace-onboarding/AGENTS.md` to the file `~/.claude/CLAUDE.md` (create it if it does not exist).
+- **Codex:** copy the file to `~/.codex/AGENTS.md`. You need to repeat this if the `git pull` showed changes.
+- **GitHub Copilot:** add it as personal instructions, see the [VS Code documentation](https://code.visualstudio.com/docs/copilot/customization/custom-instructions).
+
+On Windows, `~` is your user folder, for example `C:\Users\ada`.
