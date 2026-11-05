@@ -189,16 +189,20 @@ Open a file from the File Explorer and edit it as usual, then save it (`Ctrl+S`)
 ## Staging the changes for a commit
 
 In the Source Control panel, hover over a changed file and click the **+** icon to stage it, or click **+** next to "Changes" to stage all files. Staged files move to the "Staged Changes" section. Staging lets you decide exactly which changes go into the next commit, so that each commit groups related changes together. To unstage a file, click the **−** icon.
+
 ![img](./assets/images/git-stage.png)
 
 ## Making a commit
 
 Type a short, meaningful commit message into the text field at the top of the Source Control panel, for example "Fix unit conversion in data loader", and click "Commit". Good commit messages describe *what* changed and, if not obvious, *why*. If you have not staged anything, VS Code will ask whether to commit all changes directly.
+
 ![img](./assets/images/git-commit-message.png)
 
 ## Pushing the changes to the remote
 
 After committing, your commits only exist locally. Click "Sync Changes" in the Source Control panel (or the "..." menu -> "Push") to upload your commits to GitHub. If the remote contains changes you do not have yet, you have to pull first.
+
+![img](./assets/images/git-push.png)
 
 ## Checking out a specific file from another branch or commit
 
