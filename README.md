@@ -39,7 +39,7 @@ All projects in the group follow the [GitHub flow](https://docs.github.com/en/ge
 3. **Create a new branch** from `main` with a short, descriptive name, e.g. `fix-data-loading` (see [Creating a new branch](#creating-a-new-branch)).
 4. **Make changes and commit** them to your branch in small, meaningful steps (see [Making a commit](#making-a-commit)).
 5. **Push the branch** to GitHub (see [Pushing the changes to the remote](#pushing-the-changes-to-the-remote)). Push regularly, so your work is backed up and visible to others.
-6. **Discuss with the projects main responsible person and ask them to merge the changes.**
+6. **Discuss with the project's main responsible person and ask them to merge the changes.**
 
 The following sections explain how to do each of these steps in VS Code.
 
@@ -99,9 +99,6 @@ Copy the link that is shown in the **SSH** tab, if you have [set up an ssh key f
 To open a local repository - one that you have either cloned first, or that you have created locally - you navigate to "File" -> "Open Folder" and browse to the respective folder; then click "Open".
 
 ## Creating a new branch
-
-publish branch
-show what a branch is
 
 A branch tracks a certain line of development, starting from some common ancestor (a certain commit, usually the latest commit on `main`). A branch records from then on its own commits, independently of `main`. Other people can keep working on `main` (or on their own branches) at the same time without interfering with your work:
 
